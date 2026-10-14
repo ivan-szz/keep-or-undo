@@ -1,6 +1,6 @@
 {
   "name": "keep-or-undo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": { "name": "Ivan Sozza" },
   "description": "Per-session log of Claude's file changes, with Keep and Undo per file.",
   "types": "./types/index.d.ts",
