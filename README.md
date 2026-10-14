@@ -12,13 +12,17 @@ Only changes made through the editing tools count, never `git diff`: changes alr
 
 ## Install
 
-At the prompt of a Claude Code session in the terminal:
+**Claude Code**, as two separate prompts:
 
 ```
-/plugin install keep-or-undo --marketplace ivan-szz/keep-or-undo
+/plugin marketplace add ivan-szz/keep-or-undo
 ```
 
-Answer `y` to add the marketplace, then pick a scope (user scope is first). The mod is active right away, with no restart.
+```
+/plugin install keep-or-undo@keep-or-undo
+```
+
+Pick a scope when asked (user scope is first). The mod is active right away, with no restart.
 
 > [!IMPORTANT]
 > The mod only sees changes made through Claude's editing tools (`Edit`, `Write`, `NotebookEdit`). Changes Claude makes from the shell (`sed`, `cat >`, heredocs, scripts) are not recorded and cannot be undone from `/changes`. It is strongly recommended to tell Claude to always use the editing tools, for example in your user-level `~/.claude/CLAUDE.md`:
