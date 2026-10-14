@@ -761,25 +761,23 @@ export const register: Register = (on, options) => {
 
       rows.push(
         <Box key={`file:${file.displayPath}`} flexDirection="column">
-          {/* Keep and Undo first: a long path or many badges must not push them past a narrow pane's edge. */}
-          <Box flexDirection="row" gap={1}>
+          <Button
+            key={`open:${file.displayPath}`}
+            plain
+            onPress={() => update($, expanded, current => (current === path ? null : path))}
+          >
+            {isOpen ? '▾ ' : '▸ '}
+            {file.displayPath} <Text color="diffAdded">+{added}</Text> <Text color="diffRemoved">−{removed}</Text>
+            {badges.length > 0 ? <Text dimColor> [{badges.join('] [')}]</Text> : ''}
+          </Button>
+          {/* Keep and Undo on a row of their own: a long path or many badges must not push them past a narrow pane's edge. */}
+          <Box flexDirection="row" gap={1} marginLeft={2}>
             <Button key={`accept:${file.displayPath}`} label="Keep" onPress={() => accept($, [path])} />
             <Button
               key={`reject:${file.displayPath}`}
               label="Undo"
               onPress={() => reject($, [path], { isAll: false, isConfirmed: false })}
             />
-            <Box flexShrink={1}>
-              <Button
-                key={`open:${file.displayPath}`}
-                plain
-                onPress={() => update($, expanded, current => (current === path ? null : path))}
-              >
-                {isOpen ? '▾ ' : '▸ '}
-                {file.displayPath} <Text color="diffAdded">+{added}</Text> <Text color="diffRemoved">−{removed}</Text>
-                {badges.length > 0 ? <Text dimColor> [{badges.join('] [')}]</Text> : ''}
-              </Button>
-            </Box>
           </Box>
           {sections}
         </Box>,
