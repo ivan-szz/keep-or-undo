@@ -1,0 +1,12 @@
+{
+  "name": "keep-or-undo",
+  "owner": { "name": "Ivan Sozza" },
+  "description": "A Claude Code mod to Keep or Undo Claude's changes, file by file.",
+  "plugins": [
+    {
+      "name": "keep-or-undo",
+      "source": "./",
+      "description": "Per-session log of Claude's file changes, with Keep and Undo per file."
+    }
+  ]
+}

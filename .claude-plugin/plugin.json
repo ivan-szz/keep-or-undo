@@ -1,0 +1,21 @@
+{
+  "name": "keep-or-undo",
+  "version": "0.1.0",
+  "author": { "name": "Ivan Sozza" },
+  "description": "Per-session log of Claude's file changes, with Keep and Undo per file.",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "retentionDays": {
+      "type": "number",
+      "title": "Retention days",
+      "description": "After how many days to delete data from old sessions.",
+      "default": 14
+    },
+    "autoOpenPane": {
+      "type": "boolean",
+      "title": "Open the pane automatically",
+      "description": "At the end of a turn, opens /changes where it becomes a sidebar.",
+      "default": false
+    }
+  }
+}
